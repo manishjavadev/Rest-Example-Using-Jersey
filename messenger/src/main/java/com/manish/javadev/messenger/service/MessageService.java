@@ -10,10 +10,11 @@ import com.manish.javadev.messenger.model.Profile;
 
 public class MessageService {
 	public static Map<Long, Message> messageMap = DatabaseService.getMessages();
-	public static Map<Long, Profile> profileMap = DatabaseService.getProfiles();
+	public static Map<String, Profile> profileMap = DatabaseService
+			.getProfiles();
 
 	public List<Message> getAllMessage() {
-		ArrayList<Message> list= new ArrayList<Message>(messageMap.values());
+		ArrayList<Message> list = new ArrayList<Message>(messageMap.values());
 		return list;
 	}
 
@@ -22,11 +23,17 @@ public class MessageService {
 	}
 
 	public Message addMessage(Message message) {
-		return message;
+		Long messageId = (long) (messageMap.size() + 1);
+		message.setId((messageMap.size() + 1));
+		messageMap.put(messageId, message);
+		Message resultMessage = messageMap.get(new Long(messageMap.size()));
+		System.out.println(resultMessage);
+		return resultMessage;
 	}
 
 	public Message updateMessage(Message message) {
-		return message;
+		messageMap.put(message.getId(), message);
+		return messageMap.get(message.getId());
 	}
 
 	public Message removeMessage(Message message) {

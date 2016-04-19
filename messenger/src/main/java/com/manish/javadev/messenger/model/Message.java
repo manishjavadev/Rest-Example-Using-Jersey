@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class Message {
-	private int id;
+	private long id;
 	private String message;
 	private Date date;
 	private String author;
@@ -14,7 +14,7 @@ public class Message {
 	public Message() {
 	}
 
-	public Message(int id, String message, Date date, String author) {
+	public Message(long id, String message, Date date, String author) {
 		super();
 		this.id = id;
 		this.message = message;
@@ -22,11 +22,11 @@ public class Message {
 		this.author = author;
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -52,6 +52,12 @@ public class Message {
 
 	public void setAuthor(String author) {
 		this.author = author;
+	}
+
+	@Override
+	public String toString() {
+		return "Message [id=" + id + ", message=" + message + ", date=" + date
+				+ ", author=" + author + "]";
 	}
 
 }
