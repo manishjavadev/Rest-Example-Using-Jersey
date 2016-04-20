@@ -36,9 +36,8 @@ public class MessageService {
 		return messageMap.get(message.getId());
 	}
 
-	public Message removeMessage(Message message) {
-
-		return message;
+	public void removeMessage(long messageId) {
+		messageMap.remove(messageId);
 	}
 
 }

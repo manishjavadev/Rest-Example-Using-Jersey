@@ -3,6 +3,7 @@ package com.manish.javadev.messenger.resource;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -23,7 +24,6 @@ public class MessageResource {
 	ProfileService profileService = new ProfileService();
 
 	@GET
-	
 	public List<Message> getMessage() {
 		return messageService.getAllMessage();
 	}
@@ -47,13 +47,9 @@ public class MessageResource {
 		return messageService.updateMessage(message);
 	}
 
-	/*
-	 * @GET
-	 * 
-	 * @Path("/{profileName}")
-	 * 
-	 * @Produces(MediaType.APPLICATION_JSON) public Profile
-	 * getProfile(@PathParam("profileName") String profileName) { return
-	 * profileService.getProfile(profileName); }
-	 */
+	@DELETE
+	@Path("/{messageId}")
+	public void removeMessage(@PathParam("messageId") Long messageId) {
+		messageService.removeMessage(messageId);
+	}
 }
