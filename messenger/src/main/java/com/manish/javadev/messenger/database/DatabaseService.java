@@ -22,13 +22,13 @@ public class DatabaseService {
 		messageMap.put(new Long(2), message2);
 		messageMap.put(new Long(3), message3);
 		
-		Profile Profile1 = new Profile(1,"Profile1", "Manish","Srivastava" ,"RDB");
-		Profile Profile2 = new Profile(2,"Profile2", "Ashish","Srivastava" ,"Java");
-		Profile Profile3 = new Profile(3,"Profile3", "Abhishek","Srivastava" ,"MangoDB");
+		Profile Profile1 = new Profile(1,"profile1", "Manish","Srivastava" ,"RDB");
+		Profile Profile2 = new Profile(2,"profile2", "Ashish","Srivastava" ,"Java");
+		Profile Profile3 = new Profile(3,"profile3", "Abhishek","Srivastava" ,"MangoDB");
 
-		profileMap.put("Profile1", Profile1);
-		profileMap.put("Profile2", Profile2);
-		profileMap.put("Profile3", Profile3);
+		profileMap.put("profile1", Profile1);
+		profileMap.put("profile2", Profile2);
+		profileMap.put("profile3", Profile3);
 	}
 
 	public DatabaseService() {
