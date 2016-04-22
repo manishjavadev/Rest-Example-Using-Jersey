@@ -1,6 +1,7 @@
 package com.manish.javadev.messenger.service;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 
@@ -38,6 +39,27 @@ public class MessageService {
 
 	public void removeMessage(long messageId) {
 		messageMap.remove(messageId);
+	}
+
+	public List<Message> getAllMessagesForYear(int year) {
+		List<Message> allMessage = new ArrayList<>();
+		Calendar cal = Calendar.getInstance();
+		for (Message message : messageMap.values()) {
+			cal.setTime(message.getDate());
+			if (cal.get(Calendar.YEAR) == year) {
+				allMessage.add(message);
+			}
+		}
+		return allMessage;
+
+	}
+
+	public List<Message> getPaginatedMessage(int start, int size) {
+		List<Message> allMessage = new ArrayList<>(messageMap.values());
+		if (size >= allMessage.size()) {
+			size = allMessage.size();
+		}
+		return allMessage.subList(start, start + size);
 	}
 
 }
